@@ -16,9 +16,6 @@ public class Sleutelfun {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        Interface inter = new Interface();
-        
-        inter.display();
     }
     
 }

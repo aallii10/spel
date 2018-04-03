@@ -9,11 +9,11 @@ package sleutelfun;
  *
  * @author donna
  */
-public class Path extends Tile{
-    
-        @Override
+public class Path extends Tile {
+
+    @Override
     public boolean isBewandelbaar(Speler speler1) {
-        return true; 
+        return true;
     }
-    
+
 }

@@ -6,14 +6,18 @@
 package sleutelfun;
 
 /**
- *
+ * Pop up; next level ja nee of keer terug naar beginscherm
  * @author donna
  */
-public class Wall extends Tile {
-
-    @Override
+public class Eindveld extends Tile {
+    
+        @Override
     public boolean isBewandelbaar(Speler speler1) {
-        return false; 
+        return true; 
     }
-
+    
+    public void finishGame () {
+    
+}
+    
 }

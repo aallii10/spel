@@ -6,8 +6,7 @@
 package sleutelfun;
 
 /**
- * Superclass Functie: bewandelbaar (argument speler) Functie bewandelTegel
- * (Speler speler1)
+ * Superclass Functie: bewandelbaar (argument speler)
  *
  * @author donna
  */
@@ -15,6 +14,4 @@ public abstract class Tile {
 
     public abstract boolean isBewandelbaar(Speler speler1); // de vraag wordt gesteld. Antwoord halen bij subklassen. Geen default zetten dat is niet netjes. 
 
-    public void bewandelTegel(Speler speler1){ 
-    }
 }

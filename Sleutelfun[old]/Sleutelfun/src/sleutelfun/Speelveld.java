@@ -6,14 +6,10 @@
 package sleutelfun;
 
 /**
- *
+ * 2D arrays met objecten
+ * Out of bounds niet toegestaan
  * @author donna
  */
-public class Wall extends Tile {
-
-    @Override
-    public boolean isBewandelbaar(Speler speler1) {
-        return false; 
-    }
-
+public class Speelveld {
+    
 }

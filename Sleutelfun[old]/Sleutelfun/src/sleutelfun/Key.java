@@ -6,14 +6,13 @@
 package sleutelfun;
 
 /**
- *
+ * KeyTile
  * @author donna
  */
-public class Wall extends Tile {
-
-    @Override
+public class Key extends Tile {
+    
+        @Override
     public boolean isBewandelbaar(Speler speler1) {
-        return false; 
+        return true; 
     }
-
 }

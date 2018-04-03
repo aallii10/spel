@@ -15,5 +15,6 @@ public class Wall extends Tile {
     public boolean isBewandelbaar(Speler speler1) {
         return false; 
     }
-
+    
+    
 }

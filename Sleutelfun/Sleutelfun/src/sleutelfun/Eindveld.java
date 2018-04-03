@@ -7,17 +7,17 @@ package sleutelfun;
 
 /**
  * Pop up; next level ja nee of keer terug naar beginscherm
+ *
  * @author donna
  */
 public class Eindveld extends Tile {
-    
-        @Override
+
+    @Override
     public boolean isBewandelbaar(Speler speler1) {
-        return true; 
+        return true;
     }
-    
-    public void finishGame () {
-    
-}
-    
+
+    public void bewandelTegel(Speler speler1) { //FINISH GAMEUH
+
+    }
 }

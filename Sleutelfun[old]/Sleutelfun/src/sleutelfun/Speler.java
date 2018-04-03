@@ -6,7 +6,7 @@
 package sleutelfun;
 
 /**
- * Zak = get sleutel en set sleutelcode. 
+ * 
  * @author donna
  */
 public class Speler {
@@ -16,10 +16,6 @@ public class Speler {
     
     public int getSleutelcode () {
         return sleutelcode; 
-    }
-    
-    public void setSleutelcode (int sleutelcode) {
-        this.sleutelcode = sleutelcode; 
     }
     
 }

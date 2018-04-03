@@ -12,11 +12,9 @@ package sleutelfun;
 public class Barricade extends Tile {
 
     private int barricadeCode;
-    private boolean openBarricade;
 
     public Barricade(int bcode) {
         this.barricadeCode = bcode;
-        this.openBarricade = false; // hoeft niet in de constructor omdat je al weet dat ie false is.
     }
 
     //Speler-sleutel = heb jij een sleutel? Sleutel-barricade = kan ik jou openmaken?// 
@@ -24,17 +22,11 @@ public class Barricade extends Tile {
     public boolean isBewandelbaar(Speler speler1) {
         if (speler1.getSleutelcode() == barricadeCode) {
             return true;
-        } else if (openBarricade) {
-            return true;            
         } else {
-            return false;
+            return false; 
         }
-        /*Indien sleutelcode = barricadecode -> true. Else return false. Nieuw toegevoegd: de barricade moet verdwijnen. Zie bewandelTegel methode.*/
+        /*Indien sleutelcode = barricadecode -> true. Else return false.*/
     }
-    
-     public void bewandelTegel(Speler speler1) { //2.0 toegevoegd
-         openBarricade = true; 
-     }
 
     //ipv barricade wordt path-> boolean bijhouden of de barricade is geopend ja nee. Ander methode. 
 }
