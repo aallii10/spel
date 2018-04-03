@@ -14,7 +14,6 @@ import javax.swing.*;
  * @author donna
  */
 public class Interface {
-    int i = 1;
     
     JFrame frame = new JFrame();
 
