@@ -124,7 +124,7 @@ public class Speelveld extends JPanel implements ActionListener {
         }
     }
 
-    private void setSleutel() {
+        private void setSleutel() {
         if (l.getLevel(s.getX(), s.getY()).equals("3")) {
             s.setSleutelCode(300);
             l.setLevelAsPath(s.getX(), s.getY());
@@ -136,6 +136,7 @@ public class Speelveld extends JPanel implements ActionListener {
             l.setLevelAsPath(s.getX(), s.getY());
         }
     }
+
 
     private boolean levelEqualsUp(String str) {
         return l.getLevel(s.getX(), s.getY() - 1).equals(str);
