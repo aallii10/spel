@@ -29,7 +29,7 @@ public class Interface {
         for (int x = 0; x < 10; x++) {
             for (int q = 0; q < 10; q++) {
 
-                coordinaten[x][q] = new JLabel((x) + (q) + " ");
+                coordinaten[x][q] = new JLabel("("+ (x) +"," +(q) + ")");
 
                 coordinaten[x][q].setBorder(BorderFactory.createLineBorder(Color.BLACK));
                //coordinaten.setBorder(BorderFactory.createLineBorder(Color.BLACK));
