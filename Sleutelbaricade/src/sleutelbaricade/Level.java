@@ -55,8 +55,10 @@ public class Level {
 
     public void openLevel() {
         try {
-
-            BufferedReader br = new BufferedReader(new FileReader("/Level1.txt"));
+            String filePath = new File("").getAbsolutePath();
+            
+            br = new BufferedReader(new FileReader(new File("").getAbsolutePath().concat("\\src\\sleutelbaricade\\Level1.txt")));
+           
         } catch (Exception e) {
             System.out.println("error Loading");
 
