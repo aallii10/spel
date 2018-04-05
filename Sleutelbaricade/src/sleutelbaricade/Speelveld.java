@@ -3,6 +3,7 @@ package sleutelbaricade;
 import java.awt.event.*;
 import javax.swing.*;
 import java.awt.*;
+import java.io.*;
 
 public class Speelveld extends JPanel implements ActionListener {
 
@@ -16,9 +17,9 @@ public class Speelveld extends JPanel implements ActionListener {
     private final Sleutel sl;
     private final Eindveld e;
 
-    public Speelveld() {
+    public Speelveld(File f) {
 
-        l = new Level();
+        l = new Level(f);
         s = new Speler();
         p = new Pad();
         m = new Muur();

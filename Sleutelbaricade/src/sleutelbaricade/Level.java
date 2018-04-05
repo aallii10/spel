@@ -19,10 +19,9 @@ public class Level {
     BufferedReader br = null;
     private String Level[][] = new String[10][10];
 
-    public Level() {
+    public Level(File f) {
 
-        openLevel();
-        readLevel();
+        readLevel(f);
 
     }
 
@@ -44,7 +43,7 @@ public class Level {
 
         }
     }
-    
+
     public void setBarricadeAsPath(int x, int y) {
         if (Level[y] != null) {
 
@@ -53,19 +52,12 @@ public class Level {
         }
     }
 
-    public void openLevel() {
+    public void readLevel(File f) {
         try {
-            String filePath = new File("").getAbsolutePath();
-            
-            br = new BufferedReader(new FileReader(new File("").getAbsolutePath().concat("\\src\\sleutelbaricade\\Level1.txt")));
-           
-        } catch (Exception e) {
+        br = new BufferedReader(new FileReader(f));
+        }catch (FileNotFoundException e) {
             System.out.println("error Loading");
-
         }
-    }
-
-    public void readLevel() {
 
         for (int y = 0; y < 10; y++) {
             try {

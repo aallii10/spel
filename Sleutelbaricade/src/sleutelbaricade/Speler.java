@@ -19,7 +19,7 @@ public class Speler {
 
     public Speler() {
 
-        ImageIcon img = new ImageIcon(this.getClass().getResource("/Images/Speler.png"));
+        ImageIcon img = new ImageIcon(this.getClass().getResource("/Images/llama.gif"));
         speler = img.getImage();
 
         padX = 0;
