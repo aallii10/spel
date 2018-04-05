@@ -88,15 +88,11 @@ public class Speelveld extends JPanel implements ActionListener {
     public class Al extends KeyAdapter {
 
         public void keyPressed(KeyEvent e) {
+            
             int keycode = e.getKeyCode();
 
             //Als de speler op het eindveld komt heeft die gewonnen
-            if (s.getY() > 8 && s.getX() > 8 ) {
-                System.out.println("gewonnen");
-                JOptionPane.showMessageDialog(null, "You Win!", "Winner winner chicken dinner", JOptionPane.PLAIN_MESSAGE);
-                timer.stop();
-                
-            } else {
+          
                 if (keycode == KeyEvent.VK_W) {
 
                     if (s.getY() - 1 >= 0 && !levelEqualsUp("m")) {
@@ -164,8 +160,14 @@ public class Speelveld extends JPanel implements ActionListener {
 
                     }
                 }
-            }
-        }
+            
+            
+         if (s.getY() == 9 && s.getX() == 9 ) {
+                System.out.println("gewonnen");
+                JOptionPane.showMessageDialog(null, "You Win!", "Winner winner chicken dinner", JOptionPane.PLAIN_MESSAGE);
+                timer.stop();
+         }
+         }
     }
 
     private void setLevelPath() {
