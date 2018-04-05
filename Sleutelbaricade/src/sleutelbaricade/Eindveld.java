@@ -30,12 +30,7 @@ public class Eindveld extends Tegel {
         return eindveld;
     }
     
-    public int getXeindveld(){
-    return 9; 
-    }
-    public int getYeindveld(){
-    return 9; 
-    }
+    
     
     
 }
