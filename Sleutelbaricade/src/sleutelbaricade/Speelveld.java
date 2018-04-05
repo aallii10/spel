@@ -162,10 +162,13 @@ public class Speelveld extends JPanel implements ActionListener {
 
             if (s.getY() == 9 && s.getX() == 9) {
                 System.out.println("gewonnen");
-                int input = JOptionPane.showOptionDialog(null, "Hello World", "The title", JOptionPane.OK_CANCEL_OPTION, JOptionPane.INFORMATION_MESSAGE, null, null, null);
+                int input = JOptionPane.showOptionDialog(null, "Wil je nog een keer spelen?", "The title", JOptionPane.OK_CANCEL_OPTION, JOptionPane.INFORMATION_MESSAGE, null, null, null);
 
                 if (input == JOptionPane.OK_OPTION) {
-                    
+                  
+                }
+                else if(input == JOptionPane.CANCEL_OPTION){
+                
                 }
                 timer.stop();
             }
