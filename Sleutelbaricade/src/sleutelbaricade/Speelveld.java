@@ -6,14 +6,15 @@ import java.awt.*;
 
 public class Speelveld extends JPanel implements ActionListener {
 
-    private Timer timer;
+    private final Timer timer;
 
-    private Level l;
-    private Speler s;
-    private Pad p;
-    private Muur m;
-    private Barricade b;
-    private Sleutel sl;
+    private final Level l;
+    private final Speler s;
+    private final Pad p;
+    private final Muur m;
+    private final Barricade b;
+    private final Sleutel sl;
+    private final Eindveld e;
 
     public Speelveld() {
 
@@ -23,6 +24,7 @@ public class Speelveld extends JPanel implements ActionListener {
         m = new Muur();
         sl = new Sleutel();
         b = new Barricade();
+        e = new Eindveld();
 
         addKeyListener(new Al());
         setFocusable(true);
@@ -45,9 +47,6 @@ public class Speelveld extends JPanel implements ActionListener {
                 //hier worden de objecten op het veld getekent
                 if (l != null && l.getLevel(x, y) != null) {
                     switch (l.getLevel(x, y)) {
-                        case "p":
-                            g.drawImage(p.getPad(), x * 50, y * 50, 50, 50, null);
-                            break;
                         case "m":
                             g.drawImage(m.getMuur(), x * 50, y * 50, 50, 50, null);
                             break;
@@ -69,8 +68,13 @@ public class Speelveld extends JPanel implements ActionListener {
                         case "c":
                             g.drawImage(b.getBarricade(300), x * 50, y * 50, 50, 50, null);
                             break;
-                        default:
+                        case "e":
+                            g.drawImage(e.getEindveld(), x * 50, y * 50, 50, 50, null);
                             break;
+                        default: 
+                            g.drawImage(p.getPad(), x * 50, y * 50, 50, 50, null);
+                            break;
+                            
                     }
                 }
 
@@ -86,37 +90,76 @@ public class Speelveld extends JPanel implements ActionListener {
         public void keyPressed(KeyEvent e) {
             int keycode = e.getKeyCode();
 
-            if (keycode == KeyEvent.VK_W) {
+            //Als de speler op het eindveld komt heeft die gewonnen
+            if (s.getY() == 10 - 1 && s.getX() == 10 - 1) {
+                System.out.println("gewonnen");
+                timer.stop();
+                
+            } else {
+                if (keycode == KeyEvent.VK_W) {
 
-                if (s.getY() - 1 >= 0 && !levelEqualsUp("m")) {
-                    if (!levelEqualsUp("a") && !levelEqualsUp("b") && (!levelEqualsUp("c") || (levelEqualsUp("c") && s.getSleutelCode() == 300)) || (levelEqualsUp("b") && s.getSleutelCode() == 200) || (levelEqualsUp("a") && s.getSleutelCode() == 100)) {
-                        s.bewegen(0, -50, 0, -1);
-                        setSleutel();
-                    }
-                }
-            }
-            if (keycode == KeyEvent.VK_S) {
-                if (s.getY() + 1 <= 9 && !levelEqualsBottom("m")) {
-                    if (!levelEqualsBottom("a") && !levelEqualsBottom("b") && (!levelEqualsBottom("c") || (levelEqualsBottom("c") && s.getSleutelCode() == 300)) || (levelEqualsBottom("b") && s.getSleutelCode() == 200) || (levelEqualsBottom("a") && s.getSleutelCode() == 100)) {
-                        s.bewegen(0, 50, 0, 1);
-                        setSleutel();
-                    }
-                }
-            }
-            if (keycode == KeyEvent.VK_A) {
-                if (s.getX() - 1 >= 0 && !levelEqualsLeft("m")) {
-                    if (!levelEqualsLeft("a") && !levelEqualsLeft("b") && (!levelEqualsLeft("c") || (levelEqualsLeft("c") && s.getSleutelCode() == 300)) || (levelEqualsLeft("b") && s.getSleutelCode() == 200) || (levelEqualsLeft("a") && s.getSleutelCode() == 100)) {
-                        s.bewegen(-50, 0, -1, 0);
-                        setSleutel();
-                    }
-                }
-            }
-            if (keycode == KeyEvent.VK_D) {
-                if (s.getX() + 1 <= 9 && !levelEqualsRight("m")) {
-                    if (!levelEqualsRight("a") && !levelEqualsRight("b") && (!levelEqualsRight("c") || (levelEqualsRight("c") && s.getSleutelCode() == 300)) || (levelEqualsRight("b") && s.getSleutelCode() == 200) || (levelEqualsRight("a") && s.getSleutelCode() == 100)) {
+                    if (s.getY() - 1 >= 0 && !levelEqualsUp("m")) {
 
-                        s.bewegen(50, 0, 1, 0);
-                        setSleutel();
+                        if ((levelEqualsUp("c") && s.getSleutelCode() == 300) || (levelEqualsUp("b") && s.getSleutelCode() == 200) || (levelEqualsUp("a") && s.getSleutelCode() == 100)) {
+
+                            s.bewegen(0, -50, 0, -1);
+                            setLevelPath();
+                        } else if (!levelEqualsUp("c") && !levelEqualsUp("b") && !levelEqualsUp("a")) {
+                            s.bewegen(0, -50, 0, -1);
+                            setSleutel();
+                            setLevelPath();
+                        }
+                    }
+
+                }
+                if (keycode == KeyEvent.VK_S) {
+                    if (s.getY() + 1 <= 9 && !levelEqualsBottom("m")) {
+
+                        if ((levelEqualsBottom("c") && s.getSleutelCode() == 300) || (levelEqualsBottom("b") && s.getSleutelCode() == 200) || (levelEqualsBottom("a") && s.getSleutelCode() == 100)) {
+
+                            s.bewegen(0, 50, 0, 1);
+                            setLevelPath();
+                        } else if (!levelEqualsBottom("c") && !levelEqualsBottom("b") && !levelEqualsBottom("a")) {
+
+                            {
+                                s.bewegen(0, 50, 0, 1);
+                                setSleutel();
+                                setLevelPath();
+                                //System.out.println("y is" + s.getY());
+                                //System.out.println("x is" + s.getX());
+                            }
+                        }
+
+                    }
+                }
+                if (keycode == KeyEvent.VK_A) {
+                    if (s.getX() - 1 >= 0 && !levelEqualsLeft("m")) {
+
+                        if ((levelEqualsLeft("c") && s.getSleutelCode() == 300) || (levelEqualsLeft("b") && s.getSleutelCode() == 200) || (levelEqualsLeft("a") && s.getSleutelCode() == 100)) {
+
+                            s.bewegen(-50, 0, -1, 0);
+                            setLevelPath();
+                        } else if (!levelEqualsLeft("c") && !levelEqualsLeft("b") && !levelEqualsLeft("a")) {
+                            s.bewegen(-50, 0, -1, 0);
+                            setSleutel();
+                            setLevelPath();
+
+                        }
+
+                    }
+                }
+                if (keycode == KeyEvent.VK_D) {
+                    if (s.getX() + 1 <= 9 && !levelEqualsRight("m")) {
+
+                        if ((levelEqualsRight("c") && s.getSleutelCode() == 300) || (levelEqualsRight("b") && s.getSleutelCode() == 200) || (levelEqualsRight("a") && s.getSleutelCode() == 100)) {
+
+                            s.bewegen(50, 0, 1, 0);
+                            setLevelPath();
+                        } else if (!levelEqualsRight("c") && !levelEqualsRight("b") && !levelEqualsRight("a")) {
+                            s.bewegen(50, 0, 1, 0);
+                            setSleutel();
+                            setLevelPath();
+                        }
 
                     }
                 }
@@ -124,19 +167,25 @@ public class Speelveld extends JPanel implements ActionListener {
         }
     }
 
-        private void setSleutel() {
-        if (l.getLevel(s.getX(), s.getY()).equals("3")) {
-            s.setSleutelCode(300);
-            l.setLevelAsPath(s.getX(), s.getY());
-        } else if (l.getLevel(s.getX(), s.getY()).equals("2")) {
-            s.setSleutelCode(200);
-            l.setLevelAsPath(s.getX(), s.getY());
-        } else if (l.getLevel(s.getX(), s.getY()).equals("1")) {
-            s.setSleutelCode(100);
-            l.setLevelAsPath(s.getX(), s.getY());
-        }
+    private void setLevelPath() {
+        l.setLevelAsPath(s.getX(), s.getY());
     }
 
+    private void setSleutel() {
+        switch (l.getLevel(s.getX(), s.getY())) {
+            case "3":
+                s.setSleutelCode(300);
+                break;
+            case "2":
+                s.setSleutelCode(200);
+                break;
+            case "1":
+                s.setSleutelCode(100);
+                break;
+            default:
+                break;
+        }
+    }
 
     private boolean levelEqualsUp(String str) {
         return l.getLevel(s.getX(), s.getY() - 1).equals(str);

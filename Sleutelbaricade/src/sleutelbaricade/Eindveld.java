@@ -5,15 +5,32 @@
  */
 package sleutelbaricade;
 
+import java.awt.Image;
+import javax.swing.ImageIcon;
+
 /**
  *
  * @author Cas
  */
 public class Eindveld extends Tegel {
 
-    @Override
+    public Image eindveld;
+
+    @SuppressWarnings("override")
     public boolean isBewandelbaar() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return false;
     }
 
+    public Eindveld() {
+        ImageIcon img = new ImageIcon("C://Users//ali_a//Documents//GitHub//eindveld.jpg");
+        eindveld = img.getImage();
+    }
+
+    public Image getEindveld() {
+        return eindveld;
+    }
+    
+    
 }
+
+
