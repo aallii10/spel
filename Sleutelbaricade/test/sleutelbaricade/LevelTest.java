@@ -35,6 +35,7 @@ public class LevelTest {
 
     /**
      * Test of getLevel method, of class Level. We testen een veld met allemaal barricades.
+     * Indien je van vakje 1.1 een path maakt en dan vraag wat het is, dan geeft hij terug dat het een path is. De test is geslaagd dus dit is gelukt. 
      */
     @Test
     public void testSetLevelAsPath() {
@@ -51,7 +52,7 @@ public class LevelTest {
         l.setLevelAsPath(1, 1);
         String expResult = "p";
         String result = l.getLevel(1, 1);
-        assertEquals(expResult, result);
+        assertEquals(expResult, result); //  
 
     }
 

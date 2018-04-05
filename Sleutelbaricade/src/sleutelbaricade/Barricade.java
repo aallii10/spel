@@ -12,25 +12,18 @@ import javax.swing.ImageIcon;
  *
  * @author Cas
  */
-public class Barricade  {
+public class Barricade {
 
-    
-    
     public Image barricade;
 
-    
-   public Barricade(){
-   
-        
-        
-   }
-   
-   public Image getBarricade(int getal) {
-       ImageIcon img = new ImageIcon(this.getClass().getResource("/Images//Barricade"+getal+".png"));
+    public Barricade() {
+
+    }
+
+    public Image getBarricade(int getal) {
+        ImageIcon img = new ImageIcon(this.getClass().getResource("/Images//Barricade" + getal + ".png"));
         barricade = img.getImage();
         return barricade;
     }
 
 }
-
-
