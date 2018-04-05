@@ -5,6 +5,9 @@
  */
 package sleutelbaricade;
 
+import java.awt.GridLayout;
+import java.io.File;
+import java.net.URL;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -15,84 +18,41 @@ import static org.junit.Assert.*;
  * @author Cas
  */
 public class LevelTest {
-    
+
+    private Level l;
+
     public LevelTest() {
     }
-    
+
     @BeforeClass
     public static void setUpClass() {
+
     }
-    
+
     @AfterClass
     public static void tearDownClass() {
     }
 
     /**
-     * Test of getLevel method, of class Level.
-     */
-    @Test
-    public void testGetLevel() {
-        System.out.println("getLevel");
-        int x = 0;
-        int y = 0;
-        Level instance = new Level();
-        String expResult = "";
-        String result = instance.getLevel(x, y);
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
-     * Test of setLevelAsPath method, of class Level.
+     * Test of getLevel method, of class Level. We testen een veld met allemaal barricades.
      */
     @Test
     public void testSetLevelAsPath() {
-        System.out.println("setLevelAsPath");
+        System.out.println("getLevel");
         int x = 0;
         int y = 0;
-        Level instance = new Level();
-        instance.setLevelAsPath(x, y);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        try {
+            URL url = Level.class.getResource("test.txt");
+            File f = new File(url.getPath());
+            l = new Level(f);
+        } catch (Exception e) {
+            System.out.println("File niet gevonden!");
+        }
+        l.setLevelAsPath(1, 1);
+        String expResult = "p";
+        String result = l.getLevel(1, 1);
+        assertEquals(expResult, result);
+
     }
 
-    /**
-     * Test of setBarricadeAsPath method, of class Level.
-     */
-    @Test
-    public void testSetBarricadeAsPath() {
-        System.out.println("setBarricadeAsPath");
-        int x = 0;
-        int y = 0;
-        Level instance = new Level();
-        instance.setBarricadeAsPath(x, y);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
-     * Test of openLevel method, of class Level.
-     */
-    @Test
-    public void testOpenLevel() {
-        System.out.println("openLevel");
-        Level instance = new Level();
-        instance.openLevel();
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
-     * Test of readLevel method, of class Level.
-     */
-    @Test
-    public void testReadLevel() {
-        System.out.println("readLevel");
-        Level instance = new Level();
-        instance.readLevel();
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-    
 }
