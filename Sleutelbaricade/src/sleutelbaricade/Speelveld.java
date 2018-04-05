@@ -7,10 +7,10 @@ import java.io.*;
 
 public class Speelveld extends JPanel implements ActionListener {
 
-    private final Timer timer;
-
-    private final Level l;
-    private final Speler s;
+    private Timer timer;
+    private final File f;
+    private Level l;
+    private Speler s;
     private final Pad p;
     private final Muur m;
     private final Barricade b;
@@ -18,7 +18,7 @@ public class Speelveld extends JPanel implements ActionListener {
     private final Eindveld e;
 
     public Speelveld(File f) {
-
+        this.f = f;
         l = new Level(f);
         s = new Speler();
         p = new Pad();
@@ -166,12 +166,12 @@ public class Speelveld extends JPanel implements ActionListener {
                 int input = JOptionPane.showOptionDialog(null, "Wil je nog een keer spelen?", "The title", JOptionPane.OK_CANCEL_OPTION, JOptionPane.INFORMATION_MESSAGE, null, null, null);
 
                 if (input == JOptionPane.OK_OPTION) {
-                  
+                  reset();
                 }
                 else if(input == JOptionPane.CANCEL_OPTION){
-                
-                }
                 timer.stop();
+                }
+                
             }
         }
     }
@@ -194,6 +194,12 @@ public class Speelveld extends JPanel implements ActionListener {
             default:
                 break;
         }
+    }
+    
+    public void reset(){
+        l = new Level (f);
+        s = new Speler ();
+
     }
 
     private boolean levelEqualsUp(String str) {
