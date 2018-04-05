@@ -76,14 +76,14 @@ public class LlamaBarricade extends JFrame {
         level2Knop.setBackground(new Color(252, 84, 130));
         level2Knop.setForeground(Color.WHITE);
         level2Knop.setFont(new Font("Calibri", Font.BOLD, 42));
-        level2Knop.addActionListener(new Level1Class(this));
+        level2Knop.addActionListener(new Level2Class(this));
 
         level3Knop = new JButton("Level 3");
         bottom.add(level3Knop);
         level3Knop.setBackground(new Color(252, 84, 130));
         level3Knop.setForeground(Color.WHITE);
         level3Knop.setFont(new Font("Calibri", Font.BOLD, 42));
-        level3Knop.addActionListener(new Level1Class(this));
+        level3Knop.addActionListener(new Level3Class(this));
         pane.add(bottom);
 
     }
