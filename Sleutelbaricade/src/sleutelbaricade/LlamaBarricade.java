@@ -100,7 +100,10 @@ public class LlamaBarricade extends JFrame {
                 File file = new File(url.getPath());
                 Speelveld sp = new Speelveld(file);
                 this.frame.getContentPane().removeAll();
+                frame.getContentPane().setLayout(new GridLayout());
+                frame.setSize(550, 590);
                 this.frame.getContentPane().add(sp);
+                sp.grabFocus();
             } catch (Exception e) {
                 System.out.println("File niet gevonden!");
             }
@@ -111,13 +114,51 @@ public class LlamaBarricade extends JFrame {
 
     public class Level2Class implements ActionListener {
 
+        private JFrame frame;
+
+        public Level2Class(JFrame frame) {
+            this.frame = frame;
+        }
+
         public void actionPerformed(ActionEvent l2) {
+            try {
+                URL url = getClass().getResource("Level2.txt");
+                File file = new File(url.getPath());
+                Speelveld sp = new Speelveld(file);
+                this.frame.getContentPane().removeAll();
+                frame.getContentPane().setLayout(new GridLayout());
+                frame.setSize(550, 590);
+                this.frame.getContentPane().add(sp);
+                sp.grabFocus();
+            } catch (Exception e) {
+                System.out.println("File niet gevonden!");
+            }
+            this.frame.revalidate();
         }
     }
 
     public class Level3Class implements ActionListener {
 
+        private JFrame frame;
+
+        public Level3Class(JFrame frame) {
+            this.frame = frame;
+        }
+
         public void actionPerformed(ActionEvent l3) {
+            try {
+                URL url = getClass().getResource("Level3.txt");
+                File file = new File(url.getPath());
+                Speelveld sp = new Speelveld(file);
+                this.frame.getContentPane().removeAll();
+                frame.getContentPane().setLayout(new GridLayout());
+                frame.setSize(550, 590);
+                this.frame.getContentPane().add(sp);
+                sp.grabFocus();
+            } catch (Exception e) {
+                System.out.println("File niet gevonden!");
+            }
+            this.frame.revalidate();
         }
     }
 
