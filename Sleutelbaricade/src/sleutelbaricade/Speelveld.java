@@ -72,10 +72,10 @@ public class Speelveld extends JPanel implements ActionListener {
                         case "e":
                             g.drawImage(e.getEindveld(), x * 50, y * 50, 50, 50, null);
                             break;
-                        default: 
+                        default:
                             g.drawImage(p.getPad(), x * 50, y * 50, 50, 50, null);
                             break;
-                            
+
                     }
                 }
 
@@ -89,86 +89,91 @@ public class Speelveld extends JPanel implements ActionListener {
     public class Al extends KeyAdapter {
 
         public void keyPressed(KeyEvent e) {
-            
+
             int keycode = e.getKeyCode();
 
             //Als de speler op het eindveld komt heeft die gewonnen
-          
-                if (keycode == KeyEvent.VK_W) {
+            if (keycode == KeyEvent.VK_W) {
 
-                    if (s.getY() - 1 >= 0 && !levelEqualsUp("m")) {
+                if (s.getY() - 1 >= 0 && !levelEqualsUp("m")) {
 
-                        if ((levelEqualsUp("c") && s.getSleutelCode() == 300) || (levelEqualsUp("b") && s.getSleutelCode() == 200) || (levelEqualsUp("a") && s.getSleutelCode() == 100)) {
+                    if ((levelEqualsUp("c") && s.getSleutelCode() == 300) || (levelEqualsUp("b") && s.getSleutelCode() == 200) || (levelEqualsUp("a") && s.getSleutelCode() == 100)) {
 
-                            s.bewegen(0, -50, 0, -1);
-                            setLevelPath();
-                        } else if (!levelEqualsUp("c") && !levelEqualsUp("b") && !levelEqualsUp("a")) {
-                            s.bewegen(0, -50, 0, -1);
-                            setSleutel();
-                            setLevelPath();
-                        }
+                        s.bewegen(0, -50, 0, -1);
+                        setLevelPath();
+                    } else if (!levelEqualsUp("c") && !levelEqualsUp("b") && !levelEqualsUp("a")) {
+                        s.bewegen(0, -50, 0, -1);
+                        setSleutel();
+                        setLevelPath();
                     }
-
                 }
-                if (keycode == KeyEvent.VK_S) {
-                    if (s.getY() + 1 <= 9 && !levelEqualsBottom("m")) {
 
-                        if ((levelEqualsBottom("c") && s.getSleutelCode() == 300) || (levelEqualsBottom("b") && s.getSleutelCode() == 200) || (levelEqualsBottom("a") && s.getSleutelCode() == 100)) {
+            }
+            if (keycode == KeyEvent.VK_S) {
+                if (s.getY() + 1 <= 9 && !levelEqualsBottom("m")) {
 
+                    if ((levelEqualsBottom("c") && s.getSleutelCode() == 300) || (levelEqualsBottom("b") && s.getSleutelCode() == 200) || (levelEqualsBottom("a") && s.getSleutelCode() == 100)) {
+
+                        s.bewegen(0, 50, 0, 1);
+                        setLevelPath();
+                    } else if (!levelEqualsBottom("c") && !levelEqualsBottom("b") && !levelEqualsBottom("a")) {
+
+                        {
                             s.bewegen(0, 50, 0, 1);
-                            setLevelPath();
-                        } else if (!levelEqualsBottom("c") && !levelEqualsBottom("b") && !levelEqualsBottom("a")) {
-
-                            {
-                                s.bewegen(0, 50, 0, 1);
-                                setSleutel();
-                                setLevelPath();
-                                //System.out.println("y is" + s.getY());
-                                //System.out.println("x is" + s.getX());
-                            }
-                        }
-
-                    }
-                }
-                if (keycode == KeyEvent.VK_A) {
-                    if (s.getX() - 1 >= 0 && !levelEqualsLeft("m")) {
-
-                        if ((levelEqualsLeft("c") && s.getSleutelCode() == 300) || (levelEqualsLeft("b") && s.getSleutelCode() == 200) || (levelEqualsLeft("a") && s.getSleutelCode() == 100)) {
-
-                            s.bewegen(-50, 0, -1, 0);
-                            setLevelPath();
-                        } else if (!levelEqualsLeft("c") && !levelEqualsLeft("b") && !levelEqualsLeft("a")) {
-                            s.bewegen(-50, 0, -1, 0);
                             setSleutel();
                             setLevelPath();
-
+                            //System.out.println("y is" + s.getY());
+                            //System.out.println("x is" + s.getX());
                         }
+                    }
+
+                }
+            }
+            if (keycode == KeyEvent.VK_A) {
+                if (s.getX() - 1 >= 0 && !levelEqualsLeft("m")) {
+
+                    if ((levelEqualsLeft("c") && s.getSleutelCode() == 300) || (levelEqualsLeft("b") && s.getSleutelCode() == 200) || (levelEqualsLeft("a") && s.getSleutelCode() == 100)) {
+
+                        s.bewegen(-50, 0, -1, 0);
+                        setLevelPath();
+                    } else if (!levelEqualsLeft("c") && !levelEqualsLeft("b") && !levelEqualsLeft("a")) {
+                        s.bewegen(-50, 0, -1, 0);
+                        setSleutel();
+                        setLevelPath();
 
                     }
+
                 }
-                if (keycode == KeyEvent.VK_D) {
-                    if (s.getX() + 1 <= 9 && !levelEqualsRight("m")) {
+            }
+            if (keycode == KeyEvent.VK_D) {
+                if (s.getX() + 1 <= 9 && !levelEqualsRight("m")) {
 
-                        if ((levelEqualsRight("c") && s.getSleutelCode() == 300) || (levelEqualsRight("b") && s.getSleutelCode() == 200) || (levelEqualsRight("a") && s.getSleutelCode() == 100)) {
+                    if ((levelEqualsRight("c") && s.getSleutelCode() == 300) || (levelEqualsRight("b") && s.getSleutelCode() == 200) || (levelEqualsRight("a") && s.getSleutelCode() == 100)) {
 
-                            s.bewegen(50, 0, 1, 0);
-                            setLevelPath();
-                        } else if (!levelEqualsRight("c") && !levelEqualsRight("b") && !levelEqualsRight("a")) {
-                            s.bewegen(50, 0, 1, 0);
-                            setSleutel();
-                            setLevelPath();
-                        }
-
+                        s.bewegen(50, 0, 1, 0);
+                        setLevelPath();
+                    } else if (!levelEqualsRight("c") && !levelEqualsRight("b") && !levelEqualsRight("a")) {
+                        s.bewegen(50, 0, 1, 0);
+                        setSleutel();
+                        setLevelPath();
                     }
+
                 }
-            
-            
-         if (s.getY() == 9 && s.getX() == 9 ) {
+            }
+
+            if (s.getY() == 9 && s.getX() == 9) {
                 System.out.println("gewonnen");
-                JOptionPane.showMessageDialog(null, "You Win!", "Winner winner chicken dinner", JOptionPane.PLAIN_MESSAGE);
+                int input = JOptionPane.showOptionDialog(null, "Wil je nog een keer spelen?", "The title", JOptionPane.OK_CANCEL_OPTION, JOptionPane.INFORMATION_MESSAGE, null, null, null);
+
+                if (input == JOptionPane.OK_OPTION) {
+                  
+                }
+                else if(input == JOptionPane.CANCEL_OPTION){
+                
+                }
                 timer.stop();
-         }
-         }
+            }
+        }
     }
 
     private void setLevelPath() {
