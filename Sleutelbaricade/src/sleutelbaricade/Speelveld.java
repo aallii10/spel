@@ -91,8 +91,9 @@ public class Speelveld extends JPanel implements ActionListener {
             int keycode = e.getKeyCode();
 
             //Als de speler op het eindveld komt heeft die gewonnen
-            if (s.getY() == 10 - 1 && s.getX() == 10 - 1) {
+            if (s.getY() > 8 && s.getX() > 8 ) {
                 System.out.println("gewonnen");
+                JOptionPane.showMessageDialog(null, "You Win!", "Winner winner chicken dinner", JOptionPane.PLAIN_MESSAGE);
                 timer.stop();
                 
             } else {
