@@ -34,7 +34,7 @@ public class  Sleutel {
     }
     
 public Image getSleutel(int getal) {
-    ImageIcon img = new ImageIcon("C:\\Users\\ali_a\\Documents\\GitHub\\sleutel"+getal+".png");
+    ImageIcon img = new ImageIcon(this.getClass().getResource("/Images/sleutel"+getal+".png"));
       
      sleutel = img.getImage();
         return sleutel;

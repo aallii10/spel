@@ -26,7 +26,7 @@ public class Barricade  {
    }
    
    public Image getBarricade(int getal) {
-       ImageIcon img = new ImageIcon("C://Users//ali_a//Documents//GitHub//Barricade"+getal+".png");
+       ImageIcon img = new ImageIcon(this.getClass().getResource("/Images//Barricade"+getal+".png"));
         barricade = img.getImage();
         return barricade;
     }

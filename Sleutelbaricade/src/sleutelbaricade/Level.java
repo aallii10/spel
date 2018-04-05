@@ -56,7 +56,7 @@ public class Level {
     public void openLevel() {
         try {
 
-            br = new BufferedReader(new FileReader("C://Users//ali_a//Documents//GitHub//Level1.txt"));
+            BufferedReader br = new BufferedReader(new FileReader("/Level1.txt"));
         } catch (Exception e) {
             System.out.println("error Loading");
 

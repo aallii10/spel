@@ -17,7 +17,7 @@ public class Pad extends Tegel {
     public Pad() {
 
   
-        ImageIcon img = new ImageIcon("C:\\Users\\ali_a\\Documents\\GitHub\\pad.png");
+        ImageIcon img = new ImageIcon(this.getClass().getResource("/Images/pad.png"));
         pad = img.getImage();
 
     }

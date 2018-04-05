@@ -22,7 +22,7 @@ public class Eindveld extends Tegel {
     }
 
     public Eindveld() {
-        ImageIcon img = new ImageIcon("C://Users//ali_a//Documents//GitHub//eindveld.jpg");
+        ImageIcon img = new ImageIcon(this.getClass().getResource("/Images/eindveld.jpg"));
         eindveld = img.getImage();
     }
 

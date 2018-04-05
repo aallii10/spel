@@ -18,7 +18,7 @@ public class Muur  {
    public Muur(){
    
         
-        ImageIcon img = new ImageIcon("C://Users//ali_a//Documents//GitHub//muur.png");
+        ImageIcon img = new ImageIcon(this.getClass().getResource("/Images/muur.png"));
         muur = img.getImage();
    }
    
